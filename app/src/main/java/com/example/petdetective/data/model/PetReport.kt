@@ -25,6 +25,8 @@ data class PetReport(
     val photoUri: String? = null,
     val latitude: Double? = null,
     val longitude: Double? = null,
+    val userId: String? = null,
+    val isResolved: Boolean = false,
     val timestamp: Long = System.currentTimeMillis()
 ) {
     fun toMap(): Map<String, Any?> {
@@ -39,6 +41,8 @@ data class PetReport(
             "photoUri" to photoUri,
             "latitude" to latitude,
             "longitude" to longitude,
+            "userId" to userId,
+            "isResolved" to isResolved,
             "timestamp" to timestamp
         )
     }
@@ -57,6 +61,8 @@ data class PetReport(
                 photoUri = map["photoUri"] as? String,
                 latitude = map["latitude"] as? Double,
                 longitude = map["longitude"] as? Double,
+                userId = map["userId"] as? String,
+                isResolved = map["isResolved"] as? Boolean ?: false,
                 timestamp = map["timestamp"] as? Long ?: System.currentTimeMillis()
             )
         }
